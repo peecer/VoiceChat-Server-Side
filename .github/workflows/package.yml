@@ -1,0 +1,31 @@
+name: Verify and package
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - run: python build.py
+      - run: python -m unittest -v test_install.py
+      - name: Download and verify official dependencies
+        run: python install.py --output verified-install
+      - run: python build_pack.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voicechat-package
+          path: |
+            dist/*
+            addons/*.jar
+          if-no-files-found: error

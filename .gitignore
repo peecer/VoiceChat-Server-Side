@@ -1,0 +1,5 @@
+dist/
+build/
+installed/
+verified-install/
+__pycache__/
