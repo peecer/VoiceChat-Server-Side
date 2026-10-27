@@ -9,10 +9,23 @@ class Tests(unittest.TestCase):
         dep = json.loads((root / "dependencies.lock.json").read_text())["dependencies"][0]
         with self.assertRaises(ValueError):
             mod.verify(b"bad jar", dep)
+    def test_fabric_jar_rejected(self):
+        import io, zipfile
+        b = io.BytesIO()
+        with zipfile.ZipFile(b, 'w') as z:
+            z.writestr('fabric.mod.json', '{"id":"voicechat"}')
+        with self.assertRaisesRegex(ValueError, 'Fabric mod'):
+            mod.plugin_name(b.getvalue())
+    def test_actual_addon_is_a_paper_plugin(self):
+        lock = json.loads((root / 'dependencies.lock.json').read_text())
+        dep = lock['addon']
+        data = (root / 'addons' / dep['filename']).read_bytes()
+        mod.verify(data, dep)
+        self.assertEqual(mod.plugin_name(data), 'PeecerVoiceTCP')
     def test_lock_has_unique_ids_and_https(self):
         lock = json.loads((root / "dependencies.lock.json").read_text())
         deps = lock["dependencies"]
-        self.assertEqual(len(deps), len({d["mod_id"] for d in deps}))
+        self.assertEqual(len(deps), len({d["plugin_name"] for d in deps}))
         for d in deps:
             self.assertTrue(d["url"].startswith("https://cdn.modrinth.com/"))
             self.assertEqual(len(d["sha512"]), 128)

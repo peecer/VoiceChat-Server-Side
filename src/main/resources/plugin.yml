@@ -1,0 +1,15 @@
+name: PeecerVoiceTCP
+version: 1.0.1
+main: peecer.voice.tcp.PaperBootstrap
+api-version: '1.21'
+depend: [voicechat]
+author: peecer
+description: TCP voice transport for Simple Voice Chat on Paper and Leaf
+commands:
+  voicetcp:
+    description: Check the TCP voice listener
+    usage: /voicetcp
+    permission: peecer.voicetcp.admin
+permissions:
+  peecer.voicetcp.admin:
+    default: op

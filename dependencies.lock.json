@@ -1,82 +1,55 @@
 {
-  "format": 1,
+  "format": 2,
   "checked": "2026-10-27",
   "side": "server",
+  "platform": "paper",
   "minecraft": "26.3",
-  "fabric_loader": "0.20.1",
   "java": 25,
   "dependencies": [
     {
       "project": "simple-voice-chat",
-      "version": "fabric-2.6.26+26.3",
+      "version": "bukkit-2.6.26",
       "channel": "beta",
-      "version_id": "cZm965sW",
-      "filename": "voicechat-fabric-2.6.26+26.3.jar",
-      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/cZm965sW/voicechat-fabric-2.6.26%2B26.3.jar",
-      "sha512": "738ab57f04ad141af9407484256772b4f7f5e95fdf8edf6f134f6a057085eb2ddf4b5c7da88714e3e94a6e4ae86a8b985071a4c333485047ee52a9706845a100",
-      "sha1": "b11edf2591c2f325786544a94dcded4a9656a55b",
-      "size": 5611062,
-      "mod_id": "voicechat",
-      "mod_version": "2.6.26+26.3"
-    },
-    {
-      "project": "viafabric",
-      "version": "0.4.22+188-26.x",
-      "channel": "alpha",
-      "version_id": "z1FVDMnq",
-      "filename": "ViaFabric-0.4.22+188-26.x.jar",
-      "url": "https://cdn.modrinth.com/data/YlKdE5VK/versions/z1FVDMnq/ViaFabric-0.4.22%2B188-26.x.jar",
-      "sha512": "090e8b47b413523b8682c3953beb6d99e5a92473a8d0580bdbf6a057352aadb8ad8b7a2d08f36c99c14ed3294923102c45724c88b24d697a05b729925ce03de3",
-      "sha1": "602797ada2a9bcc4aaecbfdd2f89e4c9397787cc",
-      "size": 5916758,
-      "mod_id": "viafabric",
-      "mod_version": "0.4.22+188-26.x"
+      "filename": "voicechat-bukkit-2.6.26.jar",
+      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/CxMI5WBR/voicechat-bukkit-2.6.26.jar",
+      "sha512": "4b209cd193a897e45a25b5569fdf3a35df51154b3a5a0c7e5f0130ea57a151ca45182698aff59aad88d614f2493520527616fbc3ce0e6da1ea923924f8921786",
+      "size": 939783,
+      "plugin_name": "voicechat"
     },
     {
       "project": "viaversion",
       "version": "5.12.2",
       "channel": "release",
-      "version_id": "cVhZ1kgN",
       "filename": "ViaVersion-5.12.2.jar",
-      "url": "https://cdn.modrinth.com/data/P1OZGk5p/versions/cVhZ1kgN/ViaVersion-5.12.2.jar",
+      "url": "https://cdn.modrinth.com/data/P1OZGk5p/versions/Fkfcr89K/ViaVersion-5.12.2.jar",
       "sha512": "c6af11f50e14bc1ba239f5a90be653cce85feee30c473a4b53336b4d5527d790369cf43843f7cb06d3ac3a34fc207e7203436737ca719070644101472453401b",
-      "sha1": "bacb05ac90e820f12d5bef4218f8427ac0f366aa",
       "size": 6508809,
-      "mod_id": "viaversion",
-      "mod_version": "5.12.2"
+      "plugin_name": "ViaVersion"
     },
     {
       "project": "viabackwards",
       "version": "5.12.2",
       "channel": "release",
-      "version_id": "1xHfYAKG",
       "filename": "ViaBackwards-5.12.2.jar",
-      "url": "https://cdn.modrinth.com/data/NpvuJQoq/versions/1xHfYAKG/ViaBackwards-5.12.2.jar",
+      "url": "https://cdn.modrinth.com/data/NpvuJQoq/versions/WFO37e8T/ViaBackwards-5.12.2.jar",
       "sha512": "78bc7e5fd33ecf13aee31c62e1de46a854e066a1936f294347c6798371357497fe2cc6f23f1d42003ad3050f94ac5382db95e60ffa90d765fada0322b59b0ef9",
-      "sha1": "fa763fa46107433b2a8cc866d7796a26be587850",
       "size": 1439641,
-      "mod_id": "viabackwards",
-      "mod_version": "5.12.2"
-    },
+      "plugin_name": "ViaBackwards"
+    }
+  ],
+  "build_dependencies": [
     {
-      "project": "fabric-api",
-      "version": "0.165.0+26.3",
-      "channel": "release",
-      "version_id": "EQKgpeKu",
-      "filename": "fabric-api-0.165.0+26.3.jar",
-      "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/EQKgpeKu/fabric-api-0.165.0%2B26.3.jar",
-      "sha512": "0a4b8a14e847b71567b557b43d906c2167fa263eeeef37454a821ba286996e3da1616dc2d9647736d28a250d5ecf400541cae808359b29a62324a8a6f2ad5e30",
-      "sha1": "8f8a23d6c9fbf7b075b31b4fb0a1007b0488d1d2",
-      "size": 1778588,
-      "mod_id": "fabric-api",
-      "mod_version": "0.165.0+26.3"
+      "filename": "spigot-api.jar",
+      "url": "https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.21.11-R0.1-SNAPSHOT/spigot-api-1.21.11-R0.1-20251231.154832-9.jar",
+      "sha512": "29abc96551d71332fb054da37b7cdd0f0f4ec47ef57c5159de128fa978ff977e9c91b410ad05c3680f0cf459de02b7aa07583deee9dce04c2201cbc50237c4f8",
+      "size": 1692840
     }
   ],
   "addon": {
-    "filename": "peecer-voice-tcp-server-1.0.0.jar",
-    "sha512": "fec77113631e5cfca698e832dfa8d2787fdf3d7eb6121a7ee3fdd9569322ec09b1b8039ca81e8b61b7df25fdc3453f4b0b65d6b4b69887d83ee4cc71c1959239",
-    "size": 11855,
-    "mod_id": "peecer_voice_tcp_server",
-    "mod_version": "1.0.0"
+    "filename": "peecer-voice-tcp-paper-1.0.1.jar",
+    "sha512": "057ff698b753342a226eb41a1c5adb9d3bc6cfd9be226884c2c066eac27d4e177ad15f120f46b864f412be3e5e52cc6f7c1a80bd252673a43784529bb009c5cd",
+    "size": 13637,
+    "plugin_name": "PeecerVoiceTCP",
+    "plugin_version": "1.0.1"
   }
 }
