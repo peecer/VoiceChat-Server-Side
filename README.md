@@ -26,6 +26,7 @@ The log already shows ViaVersion and ViaBackwards 5.12.2 loaded successfully. Ke
 
 ```properties
 port=25791
+voice_host=25791
 enable_groups=true
 ```
 
@@ -33,6 +34,14 @@ The host startup log explicitly assigns **25791**. Confirm the host makes that p
 
 6. Restart fully; do not use `/reload`. Run **`/voicetcp`** as an operator. Expected: `Voice TCP: LISTENING on TCP 25791. UDP is not used.` This checks the local listener, not the firewall/public connection.
 7. On each player's client, keep [Simple Voice Chat for 1.21.11](https://cdn.modrinth.com/data/9eGKb6K1/versions/hBnJeESK/voicechat-fabric-1.21.11-2.6.26.jar) and [Peecer Voice TCP Client 1.0.0](https://github.com/peecer/VoiceChat-Client-Side/raw/refs/heads/main/addons/peecer-voice-tcp-client-1.0.0.jar) in the client `mods` folder. The server correction does not require a new client JAR.
+
+## Crossed-out plug / connection refused
+
+Check the client log after joining. `Using custom voicechat client socket implementation: peecer.voice.tcp.TcpTransport$Client` confirms the TCP add-on loaded. A later `Connecting to voice chat server` line shows the actual endpoint being attempted.
+
+The client endpoint must use the allocated voice TCP port **25791**, matching `port` in the active server config and the `/voicetcp` listener. This template sets `voice_host=25791` explicitly, keeping the game connection's server IP. If the public voice endpoint uses a different IP, set `voice_host=PUBLIC_SERVER_IP:25791` instead. Do not point it at the Minecraft game port.
+
+After changing `plugins/voicechat/voicechat-server.properties`, fully stop and start the server, then reconnect the player. Existing installations preserve their config; downloading a new installer does not overwrite it. `Connection refused` means the attempted TCP connection was rejected; confirm the advertised endpoint, TCP port allocation and forwarding/firewall rules. A local `LISTENING` message alone does not confirm public reachability. On Windows, test `Test-NetConnection PUBLIC_SERVER_IP -Port 25791` from the client computer. No UDP port is needed by this transport.
 
 ## Groups
 
